@@ -1,12 +1,5 @@
 #include <stdio.h>
 
-void swap(int *a, int *b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
 int main()
 {
 
@@ -26,19 +19,27 @@ int main()
         {
             scanf("%d", &matrix[i][j]);
         }
-    }
+    };
 
-    swap(&matrix[0][0], &matrix[0][columns - 1]);
-    swap(&matrix[rows - 1][0], &matrix[columns - 1][rows - 1]);
+    int flag = 1;
 
-    for (int i = 0; i < rows; i++)
+    for (int i = 1; i < rows; i++)
     {
-        for (int j = 0; j < columns; j++)
+        for (int j = 0; j < i; j++)
         {
-            printf("%d", matrix[i][j]);
+            if (matrix[i][j] != 0)
+            {
+                flag = 0;
+                break;
+            }
+ 
         }
-        printf("\n");
+      if(!flag)break;
     }
+
+
+if(flag)printf("Upper triangular");
+else printf("lower triangular");
 
     return 0;
 }
