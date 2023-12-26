@@ -1,7 +1,7 @@
 #include <stdio.h>
-// 1 to n prime numbers using sieve algo
+// 1 to n prime numbers sum
 int main() {
-    int n;
+    int n,sum=0;
 
     printf("Enter Number: ");
     scanf("%d", &n);
@@ -26,9 +26,9 @@ int main() {
     printf("Prime numbers up to %d are: ", n);
     for (int i = 2; i <= n; i++) {
         if (prime[i]) {
-            printf("%d ", i);
+            sum+=i;;
         }
     }
-
+printf("%d",sum);
     return 0;
 }
